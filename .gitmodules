@@ -1,0 +1,3 @@
+[submodule "jarvis_backend"]
+	path = jarvis_backend
+	url = https://github.com/dhanushnatra/jarvis_backend
