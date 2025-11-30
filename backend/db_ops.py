@@ -68,7 +68,7 @@ def get_all_tasks():
         }
         tasks.append(task)
     close_db_connection()
-    return tasks
+    return tasks if len(tasks) > 0 else "you have no tasks."
 
 def get_all_notes():
     con = get_db_connection()
@@ -83,7 +83,31 @@ def get_all_notes():
         }
         notes.append(note)
     close_db_connection()
-    return notes
+    return notes if len(notes) > 0 else "you have no notes."
+
+
+def delete_all_tasks():
+    con = get_db_connection()
+    cursor = con.cursor()
+    cursor.execute("DELETE FROM tasks")
+    con.commit()
+    close_db_connection()
+    return "All tasks deleted."
+def delete_all_notes():
+    con = get_db_connection()
+    cursor = con.cursor()
+    cursor.execute("DELETE FROM notes")
+    con.commit()
+    close_db_connection()
+    return "All notes deleted."
+def delete_all_reminders():
+    con = get_db_connection()
+    cursor = con.cursor()
+    cursor.execute("DELETE FROM reminders")
+    con.commit()
+    close_db_connection()
+    return "All reminders deleted."
+
 
 def get_all_reminders():
     con = get_db_connection()
@@ -99,7 +123,7 @@ def get_all_reminders():
         }
         reminders.append(reminder)
     close_db_connection()
-    return reminders
+    return reminders if len(reminders) > 0 else "you have no reminders."
 
 
 def get_reminder_by_id(reminder_id: int):

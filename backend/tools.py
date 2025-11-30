@@ -1,5 +1,5 @@
 from langchain.tools import tool,BaseTool
-from db_ops import get_all_tasks, add_task, get_reminder_by_id, delete_task_by_id, update_task_completion, update_reminder_time, delete_reminder_by_id, delete_note_by_id, exit_handler,get_task_by_id,get_all_reminders,get_all_notes,update_note_content,get_note_by_id,add_reminder,add_note
+from db_ops import get_all_tasks, add_task, get_reminder_by_id, delete_task_by_id, update_task_completion, update_reminder_time, delete_reminder_by_id, delete_note_by_id, exit_handler,get_task_by_id,get_all_reminders,get_all_notes,update_note_content,get_note_by_id,add_reminder,add_note,update_task_content,delete_all_tasks,delete_all_reminders,delete_all_notes
 from ddgs.ddgs import DDGS
 import os
 
@@ -45,6 +45,19 @@ def get_task(task_id: int) -> str:
         return f"No task found with id: {task_id}"
 
 @tool
+def update_task(task_id: int, new_name: str, new_description: str) -> str:
+    """Update the name and description of a task.
+    Args:
+        task_id (int): The ID of the task to update.
+        new_name (str): The new name for the task.
+        new_description (str): The new description for the task.
+    Returns:
+        str: Confirmation message."""
+    print(f"Updating task with id: {task_id} with new name: {new_name} and new description: {new_description}")
+    return update_task_content(task_id, new_name, new_description)
+
+
+@tool
 def get_current_reminders() -> str:
     """Retrieve all reminders from the database.
     Returns:
@@ -53,6 +66,31 @@ def get_current_reminders() -> str:
     print("Retrieving all current reminders from the database.")
     reminders = get_all_reminders()
     return str(reminders)
+
+@tool
+def delete_current_tasks() -> str:
+    """Delete all tasks from the database.
+    Returns:
+        str: Confirmation message."""
+    print("Deleting all tasks from the database.")
+    return delete_all_tasks()
+
+@tool
+def delete_current_reminders() -> str:
+    """Delete all reminders from the database.
+    Returns:
+        str: Confirmation message."""
+    print("Deleting all reminders from the database.")
+    return delete_all_reminders()
+
+@tool
+def delete_current_notes() -> str:
+    """Delete all notes from the database.
+    Returns:
+        str: Confirmation message."""
+    print("Deleting all notes from the database.")
+    return delete_all_notes()
+
 
 @tool
 def get_current_notes() -> str:
@@ -128,7 +166,7 @@ def delete_task(task_id: int) -> str:
     return delete_task_by_id(task_id)
 
 @tool
-def update_task(task_id: int, completed: bool) -> str:
+def update_task_compete(task_id: int, completed: bool) -> str:
     """Update the completion status of a task.
     Args:
         task_id (int): The ID of the task to update.
@@ -212,6 +250,7 @@ all_tools:list[BaseTool] = [
     get_current_tasks,
     get_task,
     update_task,
+    update_task_compete,
     add_new_task,
     delete_task,
     get_current_reminders,
@@ -224,5 +263,8 @@ all_tools:list[BaseTool] = [
     update_note,
     delete_note,
     add_new_note,
+    delete_current_tasks,
+    delete_current_reminders,
+    delete_current_notes,
     exit_program
 ]
