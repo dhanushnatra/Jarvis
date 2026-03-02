@@ -1,9 +1,0 @@
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-*.swp
-*.swo
-*.db
-*.sqlite3
-env/

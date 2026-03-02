@@ -1,0 +1,17 @@
+{% extends "base.html" %} {% block content %}
+<div class="absolute inset-0 flex items-center justify-center">
+	<img
+		src="{{ url_for('static', filename='imgs/jarvis.png') }}"
+		alt="jarvis"
+		class="w-100 h-auto mx-auto animate-pulse"
+		style="animation-duration: 2s"
+	/>
+</div>
+<div
+	class="absolute bottom-0 left-0 w-full text-md text-center text-gray-300 mb-50"
+>
+	<p class="text-sm md:text-md">
+		jarvis is a terminal-based AI assistant built with Python and Flask.
+	</p>
+</div>
+{% endblock %}
