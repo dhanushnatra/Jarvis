@@ -4,8 +4,6 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
 			href="https://fonts.googleapis.com/css2?family=Cascadia+Mono:ital,wght@0,200..700;1,200..700&display=swap"
 			rel="stylesheet"
@@ -21,7 +19,7 @@
 			<div class="container mx-auto flex items-center justify-between">
 				<a
 					href="/"
-					class="text-gray-300 hover:text-white font-bold text-lg md:text-3xl flex items-center"
+					class="text-gray-300 hover:scale-110 transition-transform duration-300 hover:text-white cursor-pointer font-bold text-lg md:text-3xl flex items-center"
 					><img
 						src="{{ url_for('static', filename='imgs/jarvis.png') }}"
 						alt="jarvis"
@@ -29,8 +27,9 @@
 					/>Jarvis</a
 				>
 				<a
+					target="_blank"
 					href="https://github.com/dhanushnatra/jarvis"
-					class="text-gray-300 hover:text-white px-3 py-4 rounded-md font-medium text-sm md:text-md flex items-center"
+					class="text-gray-300 hover:scale-110 transition-transform duration-300 hover:text-white bg-white/10 hover:bg-white/20 pr-3 py-4 cursor-pointer rounded-md font-medium text-sm md:text-md flex items-center"
 					><img
 						src="{{ url_for('static', filename='imgs/github.svg') }}"
 						alt="github"
