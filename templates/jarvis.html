@@ -1,19 +1,22 @@
 {% extends "base.html" %} {% block content %}
-<div
-	class="absolute inset-0 flex items-center justify-center pointer-events-none"
->
-	<img
-		src="{{ url_for('static', filename='imgs/jarvis.png') }}"
-		alt="jarvis"
-		class="w-120 h-auto mx-auto animate-pulse"
-		style="animation-duration: 2s"
-	/>
-</div>
-<div
-	class="absolute bottom-20 left-0 w-full text-md text-center text-gray-300 pointer-events-none"
->
-	<p class="text-sm md:text-md">
-		jarvis is a terminal-based AI assistant built with Python and Flask.
-	</p>
+<div class="relative h-screen w-full">
+	<div
+		class="absolute inset-0 flex items-center justify-center pointer-events-none"
+	>
+		<img
+			src="{{ url_for('static', filename='imgs/jarvis.png') }}"
+			alt="jarvis"
+			class="w-120 h-auto mx-auto animate-pulse"
+			style="animation-duration: 2s"
+		/>
+	</div>
+	<div
+		class="absolute bottom-20 left-0 w-full text-md text-center text-gray-300 pointer-events-none px-4"
+	>
+		<p class="text-md md:text-lg text-gray-300">
+			Say <span class="text-white font-bold">"Hey Jarvis"</span> to start
+			the conversation
+		</p>
+	</div>
 </div>
 {% endblock %}
